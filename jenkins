@@ -25,7 +25,7 @@ pipeline {    
         stage('Gather Data') {
             steps {
             echo "Collecting the sqs queue size"
-            result = sh "${env.WORKSPACE}/demo/sqs/get_sqs_queue.sh", returnStdout: true
+            result = sh "${env.WORKSPACE}/demo/tree/sqs/get_sqs_queue.sh", returnStdout: true
 		}
                         if (result==0)
                         {
