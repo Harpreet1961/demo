@@ -20,9 +20,10 @@ do
 export QUEUE_COUNT=$(aws sqs get-queue-attributes --queue-url https://sqs.$AWS_DEFAULT_REGION.amazonaws.com/$AWS_ACCOUNT/$sqs --attribute-names ApproximateNumberOfMessages|grep 'ApproximateNumberOfMessages'|awk -F ':' '{print $2}'|sed 's/"//g')
 
 if [ $QUEUE_COUNT == 0 ];then
-        echo "INFO"
+        #echo "INFO"
+        exit
 else
-        echo "CRITICAL"
+        #echo "CRITICAL"
 fi
 
 done
