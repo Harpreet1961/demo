@@ -27,7 +27,7 @@ pipeline {    
             echo "Collecting the sqs queue size"
             result = sh "${env.WORKSPACE}/demo/tree/sqs/get_sqs_queue.sh", returnStdout: true
 		}
-                        if (result==0)
+                        if (result == "INFO")
                         {
                                 echo "Send Info Email"
                                 sendEmail(inforeportDesc,emailRecipients)
