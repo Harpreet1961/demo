@@ -41,7 +41,7 @@ pipeline {    
         }
 	}
 
-        void sendEmail(reportDesc,emailRecipients) {
-        emailext body: "<p>Hi,<br /><br />There is queue in SQS topic.<br /><br />Thanks<br />Team</p>", subject: "${reportDesc}", to: "${emailRecipients}"
-        }
+      //  void sendEmail(reportDesc,emailRecipients) {
+      //  emailext body: "<p>Hi,<br /><br />There is queue in SQS topic.<br /><br />Thanks<br />Team</p>", subject: "${reportDesc}", to: "${emailRecipients}"
+      //  }
 
