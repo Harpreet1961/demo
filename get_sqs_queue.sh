@@ -4,7 +4,7 @@
 export AWS_DEFAULT_REGION="us-east-1"
 export AWS_ACCOUNT="080482353272"
 export SQS_QUEUE="customer-alert-notification-stagging customer-alert-notification-dev"
-export ENVIRONMENT ="Staging"
+export ENVIRONMENT="Staging"
 
 if [[ ${ENVIRONMENT} == "Staging" ]]; then
 export AWS_SECRET_ACCESS_KEY=$(aws secretsmanager get-secret-value --secret-id STAGING_AWS_SECRET_ACCESS_KEY --query SecretString --output text | jq -r .STAGING_AWS_SECRET_ACCESS_KEY)
