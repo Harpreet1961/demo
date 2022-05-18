@@ -73,3 +73,8 @@ void sendEmail(inforeportDesc,emailRecipients) {
         println 'Sending Email for sqs'
         emailext body: "<p>Hi All,<br /><br />Please check.<br /><br />Thanks<br />Team</p>", subject: "${inforeportDesc}", to: "${emailRecipients}"
     }
+
+void sendEmail(errorreportDesc,emailRecipients) {
+        println 'Sending Email for sqs'
+        emailext body: "<p>Hi All,<br /><br />Please check.<br /><br />Thanks<br />Team</p>", subject: "${inforeportDesc}", to: "${emailRecipients}"
+    }
