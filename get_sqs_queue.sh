@@ -16,7 +16,14 @@ fi
 
 #for sqs in $SQS_QUEUE;
 #do
-export QUEUE_COUNT=$(aws sqs get-queue-attributes --queue-url https://sqs.$AWS_DEFAULT_REGION.amazonaws.com/$AWS_ACCOUNT/$1 --attribute-names ApproximateNumberOfMessages|grep 'ApproximateNumberOfMessages'|awk -F ':' '{print $2}'|sed 's/"//g')
+export QUEUE_COUNT=$(aws sqs get-queue-attributes --queue-url https://sqs.$AWS_DEFAULT_REGION.amazonaws.com/$AWS_ACCOUNT/$1 --attribute-names ApproximateNumberOfMessages|grep 'ApproximateNumberOfMessages'|awk -F ':' '{print $2}'|sed 's/"//g'|tee storedprocedure.log)
+
+echo $QUEUE_COUNT
+
+#Check for any errors 
+if [ ! -s ./storedprocedure.log ] ; then
+exit 125
+fi
 
 if [ $QUEUE_COUNT == 0 ];then
         echo 'info'
