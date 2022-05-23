@@ -34,8 +34,9 @@ pipeline {
         steps {
             script {
             //echo "Collecting the sqs queue size"
-            def result = sh(script: "${env.WORKSPACE}/source-code/get_sqs_queue.sh customer-alert-notification-stagging", returnStdout: true).trim()
-            echo "res1 from script : ${result}"
+            def result = sh(script: "${env.WORKSPACE}/source-code/get_sqs_queue.sh customer-alert-notification-staging", returnStdout: true).trim()
+            echo $result
+             echo "res1 from script : ${result}"
             //def re1 = result.toLowerCase()
             
             if (( result =~ 'info' )) {
